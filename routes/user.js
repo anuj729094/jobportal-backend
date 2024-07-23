@@ -8,7 +8,7 @@ const checkuser = require("../middleware/checkuser")
 
 //create company users
 router.post('/user', [
-   body("email").matches(`@gmail.com` , 'gi').withMessage("Unvalid Email"), body("firstname").isLength({ min: 4 }).withMessage("Firstname must have at least 2 characters"), body("lastname").isLength({ min: 4 }).withMessage("lastname must have at least 2 characters"), body("password").isLength({ min: 4 }).withMessage("Password must have at least 10 characters")
+   body("email").matches(`@gmail.com` , 'gi').withMessage("Invalid Email"), body("firstname").isLength({ min: 4 }).withMessage("Firstname must have at least 2 characters"), body("lastname").isLength({ min: 4 }).withMessage("lastname must have at least 2 characters"), body("password").isLength({ min: 4 }).withMessage("Password must have at least 10 characters")
 ], async (req, res) => {
     try {
         console.log(req.body);

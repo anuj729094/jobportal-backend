@@ -9,7 +9,7 @@ const authenticate = require("../middleware/authenticateuser")
 
 //create user
 router.post("/createuser", [
-    body("password").isLength({ min: 5 }).withMessage("password should be of minimum 5 characters"), body("fullname").isLength({ min: 2 }).withMessage("Minimum 2 characters required"), body("lastname").isLength({ min: 2 }).withMessage("Minimum 2 characters required")
+    body("email").matches(`@gmail.com` , 'gi').withMessage("Invalid Email"), body("password").isLength({ min: 5 }).withMessage("password should be of minimum 5 characters"), body("fullname").isLength({ min: 2 }).withMessage("Minimum 2 characters required"), body("lastname").isLength({ min: 2 }).withMessage("Minimum 2 characters required")
 ], async (req, res) => {
     try {
         console.log(req.body);
