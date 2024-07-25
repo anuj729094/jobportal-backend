@@ -42,7 +42,6 @@ router.post("/createuser", [
 
 router.post("/login", async (req, res) => {
     try {
-        console.log(req.body);
         const finduserbyemail = await user.findOne({ email: req.body.email })
         if (finduserbyemail) {
             const checkpassword = await bcryptjs.compare(req.body.password, finduserbyemail.password)
@@ -59,7 +58,7 @@ router.post("/login", async (req, res) => {
             throw new Error("Invalid Credentials")
         }
     } catch (error) {
-        return res.status(500).json({ error: error.message })
+        return res.status(200).json({ status:false , error: error.message })
     }
 })
 
