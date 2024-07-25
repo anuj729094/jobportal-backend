@@ -4,7 +4,7 @@ const connection = require("./connectToDb/db")
 const app = express()
 const cors = require("cors")
 const port = 5000
-app.use(cors({credentials:true , origin:[process.env.ORIGIN_1,process.env.ORIGIN_2]}))
+app.use(cors({credentials:true , origin:[process.env.ORIGIN_1,process.env.ORIGIN_2,process.env.ORIGIN_3]}))
 connection()
 app.use(express.json())
 app.get('/', (req, res) => {
